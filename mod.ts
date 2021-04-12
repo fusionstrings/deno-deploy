@@ -10,7 +10,7 @@ async function handleRequest(request: Request) {
   if (pathname.startsWith("/style.css")) {
     //  Construct a new URL to style.css by using the URL
     //  of the script (mod.ts) as base (import.meta.url).
-    const style = new URL(style.css, import.meta.url);
+    const style = new URL("style.css", import.meta.url);
     // Fetch the asset and return the fetched response
     // to the client.
     const response = await fetch(style);
