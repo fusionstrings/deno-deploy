@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@fusionstrings/deno-deploy": "./main.tsx"
+    "@fusionstrings/deno-deploy": "./main.ts"
   }
 }
