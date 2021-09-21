@@ -28,10 +28,10 @@ async function handleRequest(request: Request) {
       <body>
         <h1>Deno Deploy Dev Container</h1>
         <main>
-          
+        style: ${style} <br>
         Pathname: ${pathname}<br> 
         import.meta.url: ${import.meta.url}<br> 
-        headers: ${new Map(request.headers)}
+        headers: ${JSON.stringify(Object.fromEntries(request.headers), null, 2)}
         </main>
       </body>
     </html>`,
@@ -43,6 +43,13 @@ async function handleRequest(request: Request) {
   );
 }
 
-addEventListener("fetch", (event: FetchEvent) => {
-  event.respondWith(handleRequest(event.request));
+//addEventListener("fetch", (event: FetchEvent) => {
+  //event.respondWith(handleRequest(event.request));
+//});
+
+addEventListener("fetch", (event) => {
+	const file = new URL("./README.md", import.meta.url);
+	event.respondWith(
+		fetch(file),
+	);
 });
