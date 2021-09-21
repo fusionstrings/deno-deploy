@@ -26,8 +26,13 @@ async function handleRequest(request: Request) {
         <link rel="stylesheet" href="css/style.css" />
       </head>
       <body>
-        <h1>${pathname}</h1>
-        <h2>${import.meta.url}</h2>
+        <h1>Deno Deploy Dev Container</h1>
+        <main>
+          
+        Pathname: ${pathname}<br> 
+        import.meta.url: ${import.meta.url}<br> 
+        headers: ${new Map(request.headers)}
+        </main>
       </body>
     </html>`,
     {
