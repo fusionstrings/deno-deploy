@@ -8,16 +8,14 @@ async function handleRequest(request: Request) {
 
   // Check if the request is for style.css.
   if (pathname.startsWith("/css")) {
-    //  Construct a new URL to style.css by using the URL
-    //  of the script (mod.ts) as base (import.meta.url).
-    const style = new URL(`.${pathname}`, import.meta.url);
-    // Fetch the asset and return the fetched response
-    // to the client.
-    const response = await fetch(style);
-    // Set the appropriate content-type header value.
-    response.headers.set("content-type", "text/css; charset=utf-8");
-    // Return the response with modified content-type header.
-    return response;
+    const file = await Deno.readFile(staticFile);
+
+		// Respond to the request with the static file.
+		return new Response(file, {
+			headers: {
+				"content-type": "text/css; charset=utf-8"
+			},
+		});
   }
 
   return new Response(
