@@ -53,3 +53,4 @@ addEventListener("fetch", async (event) => {
 		fetch(file),
 	);
 });
+
