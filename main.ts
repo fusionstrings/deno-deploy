@@ -48,7 +48,7 @@ async function handleRequest(request: Request) {
 //});
 
 addEventListener("fetch", async (event) => {
-	const file = await Deno.readFile("./README.md");
+	const file = await Deno.readFile(new URL("README.md", import.meta.url););
 	event.respondWith(
 		fetch(file),
 	);
