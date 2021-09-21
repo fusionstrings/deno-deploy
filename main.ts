@@ -43,14 +43,7 @@ async function handleRequest(request: Request) {
   );
 }
 
-//addEventListener("fetch", (event: FetchEvent) => {
-  //event.respondWith(handleRequest(event.request));
-//});
-
-addEventListener("fetch", async (event) => {
-	const file = await Deno.readFile(new URL("README.md", import.meta.url););
-	event.respondWith(
-		fetch(file),
-	);
+addEventListener("fetch", (event: FetchEvent) => {
+  event.respondWith(handleRequest(event.request));
 });
 
