@@ -27,8 +27,6 @@ async function handleRequest(request: Request) {
       </head>
       <body>
         <h1>Deno Deploy Dev Container</h1>
-        <main>
-        style: ${style} <br>
         Pathname: ${pathname}<br> 
         import.meta.url: ${import.meta.url}<br> 
         headers: ${JSON.stringify(Object.fromEntries(request.headers), null, 2)}
