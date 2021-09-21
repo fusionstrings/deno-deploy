@@ -8,7 +8,7 @@ async function handleRequest(request: Request) {
 
   // Check if the request is for style.css.
   if (pathname.startsWith("/css")) {
-    const file = await Deno.readFile(staticFile);
+    const file = await Deno.readFile(`.${pathname}`);
 
 		// Respond to the request with the static file.
 		return new Response(file, {
